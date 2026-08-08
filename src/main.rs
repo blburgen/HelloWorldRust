@@ -83,7 +83,7 @@ fn select_word() -> String {
 
     let available_words: Vec<&str> = file_contents.split(',').collect();
 
-    /* Select word at random */
+    // Select word at random 
     let random_index = rand::thread_rng().gen_range(0, available_words.len());
 
     return String::from(available_words[random_index]);
@@ -124,7 +124,7 @@ fn display_progress(letters: &Vec<Letter>) {
 }
 
 fn check_progress(turns_left: u8, letters: &Vec<Letter>) -> GameProgress {
-    /* Determine if all letters have been revealed */
+    // Determine if all letters have been revealed or if you have lost
     let mut all_revealed = true;
     for letter in letters {
         if !letter.revealed {
@@ -144,6 +144,7 @@ fn check_progress(turns_left: u8, letters: &Vec<Letter>) -> GameProgress {
 }
 
 fn read_user_input_character() -> char {
+    // mutable string variable
     let mut user_input = String::new();
 
     // Get user input
